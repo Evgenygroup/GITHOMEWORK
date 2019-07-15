@@ -140,7 +140,7 @@ public class Main {
     public static List<String> getListofIbannsWithStars(List<BankAccount> input) {
         List<String> listOfIbannsWithStars = input
                 .stream()
-                .map(a -> replaceWithStars(a.getIBANN()))
+                .map(a -> replaceWithStars(a.getIBAN()))
                 .collect(Collectors.toList());
         return listOfIbannsWithStars;
 
@@ -159,7 +159,7 @@ public class Main {
     // returns number of words starting with a certain letter
     public static long numberOfWords(String input, String w) {
         long count = Stream.of(input.split(" "))
-                .filter(s -> s.startsWith("a"))
+                .filter(s -> s.startsWith(w))
                 .count();
         return count;
     }
@@ -176,7 +176,7 @@ public class Main {
         List<String> accountsListWithStars = persons
                 .stream()
                 .flatMap(ba -> ba.getBankAccounts().stream())
-                .map(ib -> ib.getIBANN())
+                .map(ib -> ib.getIBAN())
                 .map(iba -> replaceWithStars(iba))
                 .collect(Collectors.toList());
         return accountsListWithStars;

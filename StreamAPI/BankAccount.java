@@ -1,15 +1,15 @@
 
 public class BankAccount {
-    String IBANN;
+    String IBAN;
     Person1 owner;
 
-    public BankAccount(String IBANN, Person1 owner) {
-        this.IBANN = IBANN;
+    public BankAccount(String IBAN, Person1 owner) {
+        this.IBAN = IBAN;
         this.owner = owner;
     }
 
-    public String getIBANN() {
-        return IBANN;
+    public String getIBAN() {
+        return IBAN;
     }
 
     public Person1 getOwner() {
@@ -18,7 +18,7 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return IBANN
+        return IBAN
                 ;
     }
 }

@@ -1,14 +1,14 @@
 
 public class BankAccount2 {
-    String IBANN;
+    String IBAN;
 
 
-    public BankAccount2(String IBANN) {
-        this.IBANN = IBANN;
+    public BankAccount2(String IBAN) {
+        this.IBAN = IBAN;
 
     }
 
-    public String getIBANN() {
-        return IBANN;
+    public String getIBAN() {
+        return IBAN;
     }
 }
