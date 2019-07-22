@@ -16,7 +16,7 @@ public class TestsForDateReformat {
         List<String> pattern = Arrays.asList("18 May,2019 Saturday", "25 October,2018 Thursday",
                 "19 July,2019 Friday");
 
-        List<String> testStrings = DateReformat.reformatDates(dates);
+        List<String> testStrings = DateReformatString.reformatDates(dates);
         assertEquals(pattern, testStrings);
     }
 
