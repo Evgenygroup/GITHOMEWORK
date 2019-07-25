@@ -60,7 +60,7 @@ public class HomeworkIO {
         try (BufferedReader bf = new BufferedReader(new FileReader(file));) {
 
             bf.lines()
-                    .filter(s -> ifOlder17(s) > 17)
+                    .filter(s -> splitAndConvertAgeToInt(s) > 17)
                     .map(s -> createPerson(s))
                     .forEach(System.out::println);
         } catch (IOException e) {
@@ -69,7 +69,7 @@ public class HomeworkIO {
 
     }
 
-    public static int ifOlder17(String string) {
+    public static int splitAndConvertAgeToInt(String string) {
         String[] data = string.split(",");
         return Integer.parseInt(data[1]);
     }
