@@ -1,27 +1,16 @@
-public class Word {
+public class WordToGuess {
+
     private String word;
     private String description;
     private boolean[] guessed;
 
 
-    public Word(String word, String description) {
+    public WordToGuess(String word, String description) {
         this.word = word;
         this.description = description;
         this.guessed = new boolean[word.length()];
     }
 
-    // Better implementation with StringBuilder see below
-    /*public String getWordWithStars() {
-        String wordWithStars = "";
-        for (int i = 0; i < word.length(); i++) {
-            if (guessed[i]) {
-                wordWithStars +=  word.charAt(i);
-            } else {
-                wordWithStars +=  "*";
-            }
-        }
-        return wordWithStars;
-    }*/
 
     public String getWordWithStars() {
         StringBuilder wordWithStars = new StringBuilder();
@@ -43,22 +32,16 @@ public class Word {
         return false;
     }
 
-    // HOMEWORK
-    public void checkLetter(char ch) {
+    public void openLetter(char ch) {
         for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == ch) {
+            if (ch == word.charAt(i)) {
                 guessed[i] = true;
-            } else {
-                guessed[i] = false;
-
             }
         }
-
     }
 
-    //HOMEWORK
-    public boolean checkWord(String w) {
-        if (w == word) {
+    public boolean openWord(String word) {
+        if (this.word.equals(word)) {
             for (int i = 0; i < guessed.length; i++) {
                 guessed[i] = true;
             }
@@ -66,7 +49,6 @@ public class Word {
         }
         return false;
     }
-
 
     public String getWord() {
         return word;
@@ -80,9 +62,11 @@ public class Word {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Word word1 = (Word) o;
-        if (word != null ? !word.equals(word1.word) : word1.word != null) return false;
-        return description != null ? description.equals(word1.description) : word1.description == null;
+
+        WordToGuess wordToGuess1 = (WordToGuess) o;
+
+        if (word != null ? !word.equals(wordToGuess1.word) : wordToGuess1.word != null) return false;
+        return description != null ? description.equals(wordToGuess1.description) : wordToGuess1.description == null;
 
     }
 
@@ -95,11 +79,19 @@ public class Word {
 
     @Override
     public String toString() {
-        return "Word{" +
+        return "WordToGuess{" +
                 "word='" + word + '\'' +
                 ", description='" + description + '\'' +
                 "array length=" + guessed.length +
                 '}';
     }
 
+    public boolean checkIfGuessed() {
+
+        for (boolean b : guessed) {
+            if (!b) return false;
+
+        }
+        return true;
+    }
 }
