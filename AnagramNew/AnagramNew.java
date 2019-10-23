@@ -1,40 +1,42 @@
-
+﻿
 
 import java.util.*;
+
+/*3.Анаграмма слова x  - слово, по длине равное x и состоящее из таких же букв,что и x.
+Например, слово “vani” является анаграммой слова “ivan”, а слова“naan” и “anan”
+являются анаграммами слова “anna”. Дан словарь, сожержащийанаграммы,
+например {“anna”, “ivan”, “naan”, “vani”, “piotr”, “nana”, “navi”}.
+Написать функцию, которая по слову из словаря вернет все анаграммы этогослова,
+которые есть в словаре. Например, по слову “ivan” функция вернет{“navi”, “vani”} */
 
 public class AnagramNew {
 
     static String[] dictionary = {"anna", "ivan", "naan", "vani", "pyotr", "nana", "navi"};
-
-    public static void main(String[] args) {
-        AnagramNew a = new AnagramNew();
-        Map<String, List<String>> dict = a.NewDictOfAnagrams(AnagramNew.dictionary);
-        System.out.println(a.ListAnagrams(dict, "ivan"));
-    }
+    Map<String, List<String>> createDict = new HashMap<>();
 
 
-    public List<String> ListAnagrams(Map<String, List<String>> map, String word) {
+    public List<String> listAnagrams(String word) {
         String sorting = sorting(word);
-        return map.get(sorting);
+        return createDict.get(sorting);
 
     }
 
-    public Map<String, List<String>> NewDictOfAnagrams(String[] str) {
-        Map<String, List<String>> Dict = new HashMap<>();
+    public void newDictOfAnagrams(String[] str) {
+
         for (String s : str) {
             String sorting = sorting(s);
 
-            List<String> values = Dict.get(sorting);
+            List<String> values = createDict.get(sorting);
             if (values == null) values = new ArrayList<>();
             values.add(s);
-            Dict.put(sorting, values);
+            createDict.put(sorting, values);
 
         }
-        return Dict;
+
     }
 
 
-    public String sorting(String word) {
+    private String sorting(String word) {
         char[] chars = word.toCharArray();
         Arrays.sort(chars);
         return new String(chars);
