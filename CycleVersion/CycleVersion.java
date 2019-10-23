@@ -1,5 +1,5 @@
-
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CycleVersion {
@@ -10,16 +10,19 @@ public class CycleVersion {
     будет true, а для {dd, ee, ff} и {dd, ff, ee} - false*/
 
     public boolean isCycle(List list1, List list2) {
-        LinkedList list1Copy = new LinkedList(list1);
-
         if (list1.equals(list2)) return true;
         if (list1.size() != list2.size()) return false;
 
         for (int i = 0; i < list1.size(); i++) {
-            list1Copy.addFirst(list1Copy.removeLast());
-            if (list1Copy.equals(list2)) return true;
+            if (rotateOnce(list1).equals(list2)) return true;
         }
         return false;
     }
 
+    private List<String> rotateOnce(List<String> list) {
+        String buff = list.get(list.size() - 1);
+        for (int i = list.size() - 1; i > 0; i--) list.set(i, list.get(i - 1));
+        list.set(0, buff);
+        return list;
+    }
 }
