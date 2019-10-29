@@ -39,6 +39,7 @@ i### Intellij ###
 .idea/modules
  *.iml
 *.ipr
+*.iml
 
 # CMake
 cmake-build-*/
