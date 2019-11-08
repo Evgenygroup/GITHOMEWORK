@@ -1,9 +1,9 @@
-package io_reading_files;
+package de.telran.ioreadingfiles;
 
 public class Customer {
-    String firstname;
-    String lastname;
-    int age;
+    private final String firstname;
+    private final String lastname;
+    private final int age;
 
     public Customer(String firstname, String lastname, int age) {
         this.firstname = firstname;

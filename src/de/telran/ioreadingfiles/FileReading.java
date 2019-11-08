@@ -1,13 +1,11 @@
-package io_reading_files;
+package de.telran.ioreadingfiles;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileReading {
+    private List sortedLines;
     public static void main(String[] args) {
         FileReading fileReading = new FileReading();
 
@@ -41,18 +39,17 @@ public class FileReading {
     Пример:вход ​{“aaa”, “bbbb”, “a”, ‘bb”}​, выход ​{“a”, “bb”, “aaa”, “bbbb”}​
     . Подсказка:Stream API, sorted, Comparator, lambda functions, Java Doc*/
 
-    public List SortedByStringLength(String str) {
-
-        List sortedLines = new ArrayList();
+    public List sortedByStringLength(String str) {
 
         try (BufferedReader in = new BufferedReader(new FileReader(str))) {
-            sortedLines = in.lines()
+                 sortedLines = in.lines()
                     .sorted(Comparator.comparingInt(String::length))
                     .collect(Collectors.toList());
 
 
         } catch (IOException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
 
         return sortedLines;

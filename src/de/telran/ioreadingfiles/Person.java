@@ -1,4 +1,4 @@
-package io_reading_files;
+package de.telran.ioreadingfiles;
 
 public class Person {
     String name;

@@ -1,4 +1,4 @@
-package io_reading_files;
+package de.telran.ioreadingfiles;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class FilereadingTest {
     @Test
     public void sortebyStringlengthTest() {
         List<String> expected = Arrays.asList("a", "bb", "aaa", "bbbb");
-        assertEquals(expected, fileReading.SortedByStringLength("array.txt"));
+        assertEquals(expected, fileReading.sortedByStringLength("array.txt"));
     }
 
 }
